@@ -7,11 +7,8 @@ import java.util.Date;
 public class ThreadTime {
 
   public static void main(String[] args) {
-    DateFormat df = new SimpleDateFormat("HH:mm:ss");
+    
     Thread thread = new Thread(new MonRunnable(1000));
-
-    System.out.println(df.format(new Date()));
-
     thread.start();
   }
 
@@ -27,8 +24,9 @@ public class ThreadTime {
     public void run() {
     	while(true) {
 	      try {
+	    	DateFormat df = new SimpleDateFormat("HH:mm:ss");
 	        Thread.sleep(delai);
-	        System.out.println("-");
+	        System.out.println(df.format(new Date()));
 	      } catch (InterruptedException e) {
 	        e.printStackTrace();
 	      }
